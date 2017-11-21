@@ -2,17 +2,164 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+	<title>Zubin's Application</title>
+
+
+
+<style>
+p {
+  text-align: justify;
+  font-size: 50px;
+}   
+</style>
+   <div class="header"> Gee-mail Challenge</div>
+
     <script>
       window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
+
+   mail = window.geemails;
+       
+    mailFormat = document.getElementById("mailFormat");
+ 
+
+
+        setInterval(function(){ 
+         message = getNewMessage();
+         mail.push(message);
+         tf = document.createElement("tf");
+	        td_sender = document.createElement("td");
+	        td_date = document.createElement("td");
+	        td_subject = document.createElement("td");
+	        td_body = document.createElement("td");
+
+       	td_sender.appendChild(document.createTextNode(message.sender));
+		td_subject.appendChild(document.createTextNode(message.subject));
+       	td_date.appendChild(document.createTextNode(message.date));
+       		td_body.appendChild(document.createTextNode(message.body));
+       			td_body.setAttribute("class","mailcontent"); 
+td_date.setAttribute("width","350px");
+td_sender.setAttribute("class","emailSender"); 
+	tf.appendChild(td_sender);
+       		tf.appendChild(td_subject);
+       		tf.appendChild(td_date);
+       		tf.appendChild(td_body);
+       		tf.addEventListener("click",displaymailcontents);
+   mailFormat.insertBefore(tf,mailFormat.childNodes[0]);
+td_mailcount = document.getElementById("mailcount");
+td_mailcount.textContent = "Total mails: "  + mailFormat.children.length;
+ }, 2000);
+function displayMailData(){
+			for(i=0; i<window.mail.length; i++){
+       		
+	       	tf = document.createElement("tf");
+	        td_sender = document.createElement("td");
+	        td_date = document.createElement("td");
+	        td_subject = document.createElement("td");
+	        td_body = document.createElement("td");	
+       		
+td_sender.appendChild(document.createTextNode(window.mail[i].sender));
+td_sender.setAttribute("class","emailSender"); 
+td_subject.appendChild(document.createTextNode(window.mail[i].subject));
+td_date.appendChild(document.createTextNode(window.mail[i].date));
+td_body.appendChild(document.createTextNode(window.mail[i].body));
+td_date.setAttribute("width","350px");
+td_body.setAttribute("class","mailcontent"); 
+tf.appendChild(td_sender);
+tf.appendChild(td_subject);
+tf.appendChild(td_date);
+tf.appendChild(td_body);
+tf.addEventListener("click",displaymailcontents);
+mailFormat.appendChild(tf);
+	}	
+}
+		displayMailData();
+td_mailcount = document.getElementById("mailcount");
+td_mailcount.textContent ="Total mails: "  + window.mail.length;
+
+function displaymailcontents(event){
+	console.log(this.children[3].innerText);
+	mailSender = document.getElementById("mailSender");
+	mailDate = document.getElementById("mailDate");
+	mailSubject = document.getElementById("mailSubject");
+	mailBody = document.getElementById("mailBody");
+	mailSender.textContent = this.children[0].innerText;
+	mailDate.textContent = this.children[2].innerText;
+	mailSubject.textContent = this.children[1].innerText;
+	mailBody.textContent = this.children[3].innerText;
+	modal.style.display = "hidden";
+}
+
+var modal = document.getElementById('myModal');
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() {
+    
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "block";
+    }
+}
+       
       };
-    </script>
+
+      </script>
 	</head>
+	
 	<body>
+  <p id="info" class=""><span id="counter"></span></p>
+		<nav class="bar">
+		<span id="mailcount"></span></nav>
+	</table>
+
+
+
 		<div class="container" id="main">
-			Build Me!
-		</div>
+ <table id="mailFormat" width="100%" cellpadding="0" cellspacing="0" border="0">
+ </table>
+
+
+
+<div id="myModal" class="modal">
+
+
+  <div class="modal-content">
+    <div class="modal-header"> Gee-mail Challenge</div>
+      <span class="close"></span>
+      <h2 id="mailSubject"></h2>
+    </div>
+    <div class="modal-body">
+    <div id="mailDate"></div>
+    <div id="mailSender"></div>
+		<div id="mailBody"></div>
+   </div>
+  </div>
+</div>
+			
+ 		</div>
+ 		
+		 <div class="bottom">
+			<footer></footer>
+		 </div>
+		
+
 	</body>
+
+	 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

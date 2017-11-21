@@ -1,0 +1,21 @@
+
+p {
+    color: gray;
+    padding: 0;
+    margin: 0;
+    padding-top: 20;
+    padding-bottom: 60;
+}
+header{
+    font : 200;
+    padding-top: 0;
+    padding-bottom: 20;
+}
+body{
+    font : 30; 
+    border-style: ridge;
+
+}
+.bar{
+    solid-line: black;
+}
