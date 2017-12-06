@@ -1,21 +1,93 @@
 
-p {
-    color: gray;
-    padding: 0;
-    margin: 0;
-    padding-top: 20;
-    padding-bottom: 60;
+ 
+
+.mailcontent{
+    display: none; 
 }
-header{
-    font : 200;
-    padding-top: 0;
-    padding-bottom: 20;
+.magic {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    overflow: auto;
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
 }
-body{
-    font : 30; 
-    border-style: ridge;
+.magic-content {
+    font-family: American Typewriter,serif;
+    font-style: italic; 
+    position: relative;
+    margin: auto;
+    padding-left: 40;
+    border: 4px solid black;
+    width: 85%;
+    height: 75%;
+    background-image: url(https://i.pinimg.com/originals/26/a6/d2/26a6d2d561b269eca61bde72ce720f53.png); 
+     background-repeat: no-repeat;
+    background-size:cover;
+    background-color: white;
 
 }
-.bar{
-    solid-line: black;
+.container{
+    display: block;
+    vertical-align: center
+    border: 1px solid black;
+    background: rgba(255,255,255,.6);
+
+
+}
+#topBar{
+    border-bottom: solid;
+    float:left;
+    width: 33.33%;
+    
+
+}
+#mailFormat,.emailsender,.date,.subject{
+    
+    width: 100%;
+    border-style: hidden;
+    border-bottom: solid 1px;
+    border-spacing: 0px;
+    text-align: left;
+    margin: 50px:
+    
+    
+}
+.emailsender{ 
+width: 30%; 
+}
+.date{
+    width: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.subject{
+    width: 30%;
+}
+nav.bar{
+    padding-bottom: 50px;
+    border-bottom: solid;
+    
+
+}
+#mailBody,#mailSender,#mailDate{
+    padding-right: 90;
+    padding-left: 50;
+    padding-top: 30;
+    padding-bottom: 30;
+
+}
+#main{
+    opacity: 2.5;
+    font:black;
+
+}
+body{
+    background-image: url(https://wallpaperlayer.com/img/2015/11/snowflake-background-6730-7008-hd-wallpapers.jpg);
+    background-repeat: repeat;
+    
+    
 }

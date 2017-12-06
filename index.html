@@ -2,7 +2,7 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
-	<title>Zubin's Application</title>
+	
 
 
 
@@ -12,7 +12,8 @@ p {
   font-size: 50px;
 }   
 </style>
-   <div class="header"> Gee-mail Challenge</div>
+<title class="header">Zubin's Application</title>
+   <div class="header">Zubin's Gee-mail Challenge</div>
 
     <script>
       window.onload = function(){
@@ -34,10 +35,11 @@ p {
 
        	td_sender.appendChild(document.createTextNode(message.sender));
 		td_subject.appendChild(document.createTextNode(message.subject));
+		td_subject.setAttribute("class","subject");
        	td_date.appendChild(document.createTextNode(message.date));
        		td_body.appendChild(document.createTextNode(message.body));
        			td_body.setAttribute("class","mailcontent"); 
-td_date.setAttribute("width","350px");
+td_date.setAttribute("class","Date");
 td_sender.setAttribute("class","emailSender"); 
 	tf.appendChild(td_sender);
        		tf.appendChild(td_subject);
@@ -46,8 +48,8 @@ td_sender.setAttribute("class","emailSender");
        		tf.addEventListener("click",displaymailcontents);
    mailFormat.insertBefore(tf,mailFormat.childNodes[0]);
 td_mailcount = document.getElementById("mailcount");
-td_mailcount.textContent = "Total mails: "  + mailFormat.children.length;
- }, 2000);
+td_mailcount.textContent = "Total Mails: "  + mailFormat.children.length;
+ }, 4000);
 function displayMailData(){
 			for(i=0; i<window.mail.length; i++){
        		
@@ -60,10 +62,12 @@ function displayMailData(){
 td_sender.appendChild(document.createTextNode(window.mail[i].sender));
 td_sender.setAttribute("class","emailSender"); 
 td_subject.appendChild(document.createTextNode(window.mail[i].subject));
+td_subject.setAttribute("class","subject");
 td_date.appendChild(document.createTextNode(window.mail[i].date));
+td_date.setAttribute("class","Date");
 td_body.appendChild(document.createTextNode(window.mail[i].body));
-td_date.setAttribute("width","350px");
-td_body.setAttribute("class","mailcontent"); 
+td_body.setAttribute("class","mailcontent");
+
 tf.appendChild(td_sender);
 tf.appendChild(td_subject);
 tf.appendChild(td_date);
@@ -74,7 +78,7 @@ mailFormat.appendChild(tf);
 }
 		displayMailData();
 td_mailcount = document.getElementById("mailcount");
-td_mailcount.textContent ="Total mails: "  + window.mail.length;
+td_mailcount.textContent ="Total Mails: "  + window.mail.length;
 
 function displaymailcontents(event){
 	console.log(this.children[3].innerText);
@@ -86,51 +90,54 @@ function displaymailcontents(event){
 	mailDate.textContent = this.children[2].innerText;
 	mailSubject.textContent = this.children[1].innerText;
 	mailBody.textContent = this.children[3].innerText;
-	modal.style.display = "hidden";
+	magic.style.display = "block";
 }
 
-var modal = document.getElementById('myModal');
+var magic = document.getElementById('mm');
 
 var span = document.getElementsByClassName("close")[0];
 
 span.onclick = function() {
-    
+    magic.style.display = "none";
 }
+
 
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "block";
+    if (event.target == magic) {
+        magic.style.display = "none";
     }
-}
-       
-      };
 
-      </script>
+       
+   }  
+  }    </script>
 	</head>
 	
 	<body>
   <p id="info" class=""><span id="counter"></span></p>
-		<nav class="bar">
+		<nav class="bar">Zee
 		<span id="mailcount"></span></nav>
 	</table>
 
 
 
 		<div class="container" id="main">
- <table id="mailFormat" width="100%" cellpadding="0" cellspacing="0" border="0">
+ <table id="mailFormat">
+ 	<div id="topBar">From:</div>
+ 	<div id="topBar">Subject:</div>
+ 	<div id="topBar">Date:</div>
  </table>
 
 
 
-<div id="myModal" class="modal">
+<div id="mm" class="magic">
 
 
-  <div class="modal-content">
-    <div class="modal-header"> Gee-mail Challenge</div>
+  <div class="magic-content">
+    <div class="magic-header">
       <span class="close"></span>
       <h2 id="mailSubject"></h2>
     </div>
-    <div class="modal-body">
+    <div class="magic-body">
     <div id="mailDate"></div>
     <div id="mailSender"></div>
 		<div id="mailBody"></div>
@@ -149,7 +156,6 @@ window.onclick = function(event) {
 
 	 
 </html>
-
 
 
 
